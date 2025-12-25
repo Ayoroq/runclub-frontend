@@ -19,7 +19,7 @@ export default function Login() {
           <input type="password" name="password" id="password" required minLength={8} />
         </p>
         <p>
-          <button type="submit">Login</button>
+          <button className={styles.button} type="submit">Login</button>
         </p>
       </form>
     </main>

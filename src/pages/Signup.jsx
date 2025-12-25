@@ -37,7 +37,7 @@ export default function Signup() {
                     <input type="password" name="confirmPassword" id="confirmPassword" required minLength={8} />
                 </p>
                 <p>
-                    <button type="submit">Signup</button>
+                    <button className={styles.button} type="submit">Signup</button>
                 </p>
             </form>
         </main>
