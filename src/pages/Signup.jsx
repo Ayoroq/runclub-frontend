@@ -1,5 +1,5 @@
 export default function Signup() {
-    const handleFormSubmit = (e) => {
+    function handleFormSubmit (e) {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);

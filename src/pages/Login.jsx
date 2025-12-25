@@ -1,3 +1,26 @@
 export default function Login() {
-  return <h1>Login Page</h1>
+  function  handleLoginSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData);
+    console.log(data)
+  }
+  return (
+    <main>
+      <h1>Login</h1>
+      <form action="" onSubmit={handleLoginSubmit}>
+        <p>
+          <label htmlFor="username"></label>
+          <input type="text" name="username" id="username" placeholder="Username" required />
+        </p>
+        <p>
+          <label htmlFor="password"></label>
+          <input type="password" name="password" id="password" placeholder="Password" required />
+        </p>
+        <p>
+          <button type="submit">Login</button>
+        </p>
+      </form>
+    </main>
+  )
 }
