@@ -12,11 +12,11 @@ export default function Login() {
       <form action="" onSubmit={handleLoginSubmit} className={styles.form}>
         <p>
           <label htmlFor="username">Username</label>
-          <input type="text" name="username" id="username" placeholder="Username" required />
+          <input type="text" name="username" id="username" required />
         </p>
         <p>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password" required minLength={8} />
+          <input type="password" name="password" id="password" required minLength={8} />
         </p>
         <p>
           <button type="submit">Login</button>

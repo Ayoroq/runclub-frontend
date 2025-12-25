@@ -14,27 +14,27 @@ export default function Signup() {
             <form action="" onSubmit={handleFormSubmit} className={styles.form}>
                 <p>
                     <label htmlFor="firstName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+                    <input type="text" name="firstName" id="firstName" required />
                 </p>
                 <p>
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+                    <input type="text" name="lastName" id="lastName" required />
                 </p>
                 <p>
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email" required />
+                    <input type="email" name="email" id="email" required />
                 </p>
                 <p>
                     <label htmlFor="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="Username" required />
+                    <input type="text" name="username" id="username" required />
                 </p>
                 <p>
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Password" required minLength={8} />
+                    <input type="password" name="password" id="password" required minLength={8} />
                 </p>
                 <p>
                     <label htmlFor="confirmPassword">Confirm Password</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required minLength={8} />
+                    <input type="password" name="confirmPassword" id="confirmPassword" required minLength={8} />
                 </p>
                 <p>
                     <button type="submit">Signup</button>
