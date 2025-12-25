@@ -10,12 +10,12 @@ export default function Login() {
       <h1>Login</h1>
       <form action="" onSubmit={handleLoginSubmit}>
         <p>
-          <label htmlFor="username"></label>
+          <label htmlFor="username">Username</label>
           <input type="text" name="username" id="username" placeholder="Username" required />
         </p>
         <p>
-          <label htmlFor="password"></label>
-          <input type="password" name="password" id="password" placeholder="Password" required />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" required minLength={8} />
         </p>
         <p>
           <button type="submit">Login</button>

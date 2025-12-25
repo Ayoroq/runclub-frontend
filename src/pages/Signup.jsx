@@ -11,28 +11,28 @@ export default function Signup() {
             <p>This is the signup page</p>
             <form action="" onSubmit={handleFormSubmit}>
                 <p>
-                    <label htmlFor="firstName"></label>
+                    <label htmlFor="firstName">First Name</label>
                     <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
                 </p>
                 <p>
-                    <label htmlFor="lastName"></label>
+                    <label htmlFor="lastName">Last Name</label>
                     <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
                 </p>
                 <p>
-                    <label htmlFor="email"></label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email" required />
                 </p>
                 <p>
-                    <label htmlFor="username"></label>
+                    <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username" placeholder="Username" required />
                 </p>
                 <p>
-                    <label htmlFor="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Password" required />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" required minLength={8} />
                 </p>
                 <p>
-                    <label htmlFor="confirmPassword"></label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required />
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required minLength={8} />
                 </p>
                 <p>
                     <button type="submit">Signup</button>
