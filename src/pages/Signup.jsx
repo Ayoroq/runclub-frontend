@@ -1,14 +1,18 @@
 import styles from './pages.module.css'
 import Button from '../components/Button.jsx'
 import buttonStyles from '../components/Button.module.css'
+import { useNavigate } from 'react-router';
 
 export default function Signup() {
+    const navigate = useNavigate();
+
     function handleFormSubmit (e) {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
         console.log(data);
     }
+
     return (
         <main className={styles.main}>
             <h1>Signup Page</h1>
@@ -40,6 +44,7 @@ export default function Signup() {
                 </p>
                 <Button type="submit" className={buttonStyles.signupButton} text="Signup" color="green" />
             </form>
+            <p>Already have an account? <span className={styles.loginLink} onClick={() => navigate('/login')}>Login</span></p>
         </main>
     )
 }
