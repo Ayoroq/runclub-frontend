@@ -22,24 +22,9 @@
   border-bottom: 1px solid;
 }
 
-.button {
-  font-size: 1.1rem;
-  padding: 0.7rem 1rem;
-  width: 300px;
-  max-width: 300px;
-  border: none;
-  background-color: rgb(238, 29, 71);
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in, background-color 0.3s ease-in;
-}
 
-.button:hover {
-  background-color: crimson;
-  transform: translateY(-5px);
-}
-
-.button:active {
-  transform: translateY(0);
+/* Home Page */
+.loginLink{
+    color: blue;
+    cursor: pointer;
 }

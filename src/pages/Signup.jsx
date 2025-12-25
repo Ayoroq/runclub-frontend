@@ -1,4 +1,5 @@
 import styles from './pages.module.css'
+import Button from '../components/Button.jsx'
 
 export default function Signup() {
     function handleFormSubmit (e) {
@@ -36,9 +37,7 @@ export default function Signup() {
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" name="confirmPassword" id="confirmPassword" required minLength={8} />
                 </p>
-                <p>
-                    <button className={styles.button} type="submit">Signup</button>
-                </p>
+                <Button type="submit" text="Signup" color="green" />
             </form>
         </main>
     )

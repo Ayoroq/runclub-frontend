@@ -1,4 +1,5 @@
 import styles from './pages.module.css'
+import Button from '../components/Button'
 export default function Login() {
   function  handleLoginSubmit(e) {
     e.preventDefault()
@@ -18,9 +19,7 @@ export default function Login() {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" required minLength={8} />
         </p>
-        <p>
-          <button className={styles.button} type="submit">Login</button>
-        </p>
+        <Button type="submit" text="Login" color="green" />
       </form>
     </main>
   )
