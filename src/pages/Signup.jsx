@@ -1,3 +1,5 @@
+import styles from './pages.module.css'
+
 export default function Signup() {
     function handleFormSubmit (e) {
         e.preventDefault();
@@ -6,10 +8,10 @@ export default function Signup() {
         console.log(data);
     }
     return (
-        <main>
+        <main className={styles.main}>
             <h1>Signup Page</h1>
             <p>This is the signup page</p>
-            <form action="" onSubmit={handleFormSubmit}>
+            <form action="" onSubmit={handleFormSubmit} className={styles.form}>
                 <p>
                     <label htmlFor="firstName">First Name</label>
                     <input type="text" name="firstName" id="firstName" placeholder="First Name" required />

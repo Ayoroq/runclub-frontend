@@ -1,3 +1,4 @@
+import styles from './pages.module.css'
 export default function Login() {
   function  handleLoginSubmit(e) {
     e.preventDefault()
@@ -6,9 +7,9 @@ export default function Login() {
     console.log(data)
   }
   return (
-    <main>
+    <main className={styles.main}>
       <h1>Login</h1>
-      <form action="" onSubmit={handleLoginSubmit}>
+      <form action="" onSubmit={handleLoginSubmit} className={styles.form}>
         <p>
           <label htmlFor="username">Username</label>
           <input type="text" name="username" id="username" placeholder="Username" required />
