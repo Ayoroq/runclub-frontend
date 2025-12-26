@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
 
     async function checkAuth() {
         try {
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/check`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/verify`, {
                 credentials: 'include'
             });
             setIsLoggedIn(res.ok);
