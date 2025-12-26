@@ -4,6 +4,7 @@ import HomePage from '../pages/Home.jsx'
 import Login from '../pages/Login.jsx'
 import Signup from '../pages/Signup.jsx'
 import NotAuthorized from '../pages/NotAuthorized.jsx'
+import Dashboard from '../pages/DashBoard.jsx'
 
 const routes = [
     {
@@ -22,6 +23,10 @@ const routes = [
             {
                 path: '/signup',
                 element: <Signup />
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard />
             },
             {
                 path: '/403',
