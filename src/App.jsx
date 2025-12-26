@@ -10,10 +10,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <div>
+      <>
         {!hideNavbar && <Navbar />}
         <Outlet />
-      </div>
+      </>
     </AuthProvider>
   );
 }

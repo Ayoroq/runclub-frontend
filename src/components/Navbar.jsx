@@ -1,4 +1,4 @@
-import styles from '../pages/pages.module.css'
+import styles from './Components.module.css'
 import { useNavigate } from 'react-router'
 import {useContext} from 'react'
 import { AuthContext } from '../context/AuthContext'
