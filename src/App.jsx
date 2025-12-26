@@ -1,13 +1,21 @@
-import { useState } from 'react'
-import { Outlet } from 'react-router'
-import './App.css'
+import { useState } from "react";
+import { Outlet, useLocation } from "react-router";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = ["/login", "/signup"].includes(location.pathname);
+
   return (
-    <div>
-      <Outlet />
-    </div>
-  )
+    <AuthProvider>
+      <div>
+        {!hideNavbar && <Navbar />}
+        <Outlet />
+      </div>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
