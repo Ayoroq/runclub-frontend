@@ -2,12 +2,18 @@ import styles from './pages.module.css'
 import Button from '../components/Button'
 import buttonStyles from '../components/Button.module.css'
 import { useNavigate } from 'react-router'
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import { AuthContext } from '../context/AuthContext'
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, isLoggedIn, loading } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!loading && isLoggedIn) {
+      navigate('/dashboard');
+    }
+  }, [isLoggedIn,loading, navigate]);
 
   async function  handleLoginSubmit(e) {
     e.preventDefault()
@@ -15,9 +21,7 @@ export default function Login() {
     const data = Object.fromEntries(formData);
 
     const response = await loginUser(data);
-    if (response.success) {
-      navigate('/dashboard');
-    }else{
+    if (!response.success) {
       console.error('Login failed')
     }
   }

@@ -2,12 +2,18 @@ import styles from "./pages.module.css";
 import Button from "../components/Button.jsx";
 import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
-import {useContext} from 'react'
+import {use, useContext, useEffect} from 'react'
 import { AuthContext } from "../context/AuthContext.jsx";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const { signupUser } = useContext(AuthContext);
+  const { signupUser, isLoggedIn, loading } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!loading && isLoggedIn) {
+      navigate("/dashboard");
+    }
+  }, [isLoggedIn, loading, navigate]);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -15,9 +21,7 @@ export default function Signup() {
     const data = Object.fromEntries(formData);
 
     const response = await signupUser(data);
-    if (response.success) {
-      navigate("/login");
-    } else {
+    if (!response.success) {
       console.error("Signup failed");
     }
   }
