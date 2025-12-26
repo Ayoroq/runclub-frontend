@@ -5,28 +5,27 @@ import { AuthContext } from '../context/AuthContext'
 
 
 export default function Navbar() {
-    const { isLoggedIn, logout, user } = useContext(AuthContext);
+    const { isLoggedIn,loading, logout, user } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(user)
 
     return (
         <nav className={styles.navbar}>
-            <h1>Run Club</h1>
-            <ul>
-                <li onClick={() => navigate('/')}>Home</li>
-                {isLoggedIn ? (
+            <div className={styles.navbarLeft}>
+                <h1 className={styles.logo} onClick={() => navigate('/')}>Run Club</h1>
+            </div>
+            <div className={styles.navbarRight}>
+                {loading ? null : isLoggedIn ? (
                     <>
-                        <li onClick={() => navigate('/dashboard')}>Dashboard</li>
-                        <li onClick={logout}>Logout</li>
-                        <li>{user.username}</li>
+                        <span className={styles.username}>{user.username}</span>
+                        <button className={styles.logoutButton} onClick={logout}>Logout</button>
                     </>
                 ) : (
                     <>
-                        <li onClick={() => navigate('/login')}>Login</li>
-                        <li onClick={() => navigate('/signup')}>Signup</li>
+                        <button className={styles.loginButton} onClick={() => navigate('/login')}>Login</button>
+                        <button className={styles.signupButton} onClick={() => navigate('/signup')}>Signup</button>
                     </>
                 )}
-            </ul>
+            </div>
         </nav>
     )
 }
