@@ -10,6 +10,21 @@ export default function Navbar() {
 
     return (
         <nav className={styles.navbar}>
+            <h1>Run Club</h1>
+            <ul>
+                <li onClick={() => navigate('/')}>Home</li>
+                {isLoggedIn ? (
+                    <>
+                        <li onClick={() => navigate('/dashboard')}>Dashboard</li>
+                        <li onClick={logout}>Logout</li>
+                    </>
+                ) : (
+                    <>
+                        <li onClick={() => navigate('/login')}>Login</li>
+                        <li onClick={() => navigate('/signup')}>Signup</li>
+                    </>
+                )}
+            </ul>
         </nav>
     )
 }

@@ -26,6 +26,10 @@ export default function Login() {
     }
   }
 
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <main className={styles.main}>
       <h1>Login</h1>

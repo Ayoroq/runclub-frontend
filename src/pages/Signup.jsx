@@ -25,6 +25,10 @@ export default function Signup() {
       console.error("Signup failed");
     }
   }
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main className={styles.main}>
