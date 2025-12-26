@@ -2,6 +2,7 @@ import styles from "./pages.module.css";
 import Button from "../components/Button";
 import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
+import { useContext, useEffect } from "react";
 
 export default function Dashboard() {
   const navigate = useNavigate();

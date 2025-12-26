@@ -2,33 +2,23 @@ import styles from './pages.module.css'
 import Button from '../components/Button'
 import buttonStyles from '../components/Button.module.css'
 import { useNavigate } from 'react-router'
+import {useContext} from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 export default function Login() {
   const navigate = useNavigate();
+  const { loginUser } = useContext(AuthContext);
 
   async function  handleLoginSubmit(e) {
     e.preventDefault()
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData);
-    
-    try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify(data)
-      })
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log(responseData);
-        navigate('/dashboard')
-      } else {
-        console.error('Failed to login');
-      }
-    } catch (error) {
-      console.error('Error:', error);
+
+    const response = await loginUser(data);
+    if (response.success) {
+      navigate('/dashboard');
+    }else{
+      console.error('Login failed')
     }
   }
 

@@ -2,36 +2,23 @@ import styles from "./pages.module.css";
 import Button from "../components/Button.jsx";
 import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
+import {useContext} from 'react'
+import { AuthContext } from "../context/AuthContext.jsx";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { signupUser } = useContext(AuthContext);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/auth/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(data),
-        }
-      );
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log(responseData);
-        navigate("/login");
-      } else {
-        console.error("Failed to create user");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    const response = await signupUser(data);
+    if (response.success) {
+      navigate("/login");
+    } else {
+      console.error("Signup failed");
     }
   }
 
