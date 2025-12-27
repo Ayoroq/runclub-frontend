@@ -14,6 +14,8 @@ export default function Dashboard() {
       navigate("/login");
     }
   }, [isLoggedIn, loading, navigate]);
+
+  if(loading) return (null)
   
   return (
     <main className={styles.dashboard}>

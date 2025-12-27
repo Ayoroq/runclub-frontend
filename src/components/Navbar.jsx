@@ -7,6 +7,10 @@ export default function Navbar() {
   const { isLoggedIn, loading, logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>

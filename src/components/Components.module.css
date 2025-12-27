@@ -24,3 +24,9 @@
 .logoutButton, .username{
     cursor: pointer;
 }
+
+.loginButton,.signupButton{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
