@@ -16,7 +16,7 @@ export default function Home() {
   }, [isLoggedIn, loading, navigate]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return(null);
   }
 
   return (
