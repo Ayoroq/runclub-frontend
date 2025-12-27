@@ -41,3 +41,9 @@
 .signupButton:hover{
     background-color: rgb(188, 158, 21);
 }
+
+@media (max-width: 600px) {
+  .button{
+    width: 200px;
+  }
+}
