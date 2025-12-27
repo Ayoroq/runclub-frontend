@@ -3,9 +3,9 @@ export default function PostCard({posts}){
     return(
        <ul className={styles.postContainer}>
         {posts.map((post) => (
-            <li key={post.id}>
+            <li key={post.id} className={styles.post}>
                 <p>{post.content}</p>
-                <div>
+                <div className={styles.postInfo}>
                     <p>@{post.username}</p>
                     <p>{post.created_at}</p>
                 </div>
