@@ -4,6 +4,7 @@ import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Post from "../components/PostCard";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ useEffect(() => {
 
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
+          setPosts(data)
         } else {
           console.error('Server returned an error:', res.status);
         }
@@ -44,11 +45,7 @@ useEffect(() => {
       <h1>This is the dashboard</h1>
       <p>Here you can see all the events you have joined</p>
       <p>Here you can also create a new event</p>
-      <Button
-        text="Create Event"
-        className={buttonStyles.dashboardCreateEventButton}
-        onClick={() => navigate("/create-event")}
-      />
+      <Post posts={posts}/>
     </main>
   );
 }
