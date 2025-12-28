@@ -14,8 +14,8 @@ export default function PostCard({ posts }) {
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
 
-  if (hours < 1) return `${minutes} mins ago`;
-  if (hours < 24) return `${hours} hrs ago`;
+  if (hours < 1) return `${minutes} mins`;
+  if (hours < 24) return `${hours} hrs`;
 
   // Show date like "Dec 25"
   return date.toLocaleDateString("en-US", {
