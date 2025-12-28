@@ -60,4 +60,9 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribeButton:hover{
+  background-color: rgb(229, 229, 228);
 }
