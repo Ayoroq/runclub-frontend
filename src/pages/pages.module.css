@@ -78,3 +78,47 @@
 .subscribeButton:hover, .adminButton:hover {
   background-color: var(--hover);
 }
+
+
+/* Post message */
+.postSection{
+  max-width: 600px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+textarea{
+  outline: none;
+  resize: none;
+  border: none;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.postCancel{
+  width: 20px;
+  height: 20px;
+  color: rgb(15, 20, 25);
+  cursor: pointer;
+}
+
+.postButtonDiv{
+  width: 100%;
+  border-top: 1px solid #EFF3F4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.postButton{
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(143, 141, 141);
+  color: white;
+}
