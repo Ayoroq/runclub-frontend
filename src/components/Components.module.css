@@ -76,7 +76,5 @@
 }
 
 .postInfo{
-    display: flex;
-    justify-content: space-between;
     color: var(--background);
 }
