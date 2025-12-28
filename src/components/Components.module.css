@@ -9,6 +9,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 .logo{
@@ -56,6 +61,10 @@
     max-width: 500px;
     text-align: left;
     cursor: pointer;
+}
+
+.post:first-child{
+    border-top: 0.5px solid var(--border)
 }
 
 .post * {
