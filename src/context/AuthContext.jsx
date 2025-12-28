@@ -7,6 +7,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
     const [isRunner, setIsRunner] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
 
     async function checkAuth() {
         try {
@@ -18,10 +19,12 @@ export function AuthProvider({ children }) {
                 setUser(data.user);
                 setIsLoggedIn(true);
                 setIsRunner(data.user.isRunner);
+                setIsAdmin(data.user.isAdmin);
             } else {
                 setIsLoggedIn(false);
                 setUser(null);
                 setIsRunner(false);
+                setIsAdmin(false);
             }
         } catch {
             setIsLoggedIn(false);
@@ -48,6 +51,7 @@ export function AuthProvider({ children }) {
                 setUser(data.user);
                 setIsLoggedIn(true);
                 setIsRunner(data.user.isRunner);
+                setIsAdmin(data.user.isAdmin);
                 return { success: true };
             }
             return { success: false, error: 'Invalid credentials' };
@@ -87,6 +91,9 @@ export function AuthProvider({ children }) {
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
+                setIsLoggedIn(true);
+                setIsRunner(data.user.isRunner);
+                setIsAdmin(data.user.isAdmin);
                 return { success: true };
             }
             return { success: false, error: 'Update failed' };
