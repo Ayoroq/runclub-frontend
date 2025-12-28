@@ -99,12 +99,20 @@
 .leftNavItem{
     padding: 1rem 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .leftNavContainer p{
     margin: 0;
     font-size: 1.1rem;
     text-align: left;
+}
+
+.leftNavIcon{
+    width: 20px;
+    height: 20px;
 }
 
 .postButton{
