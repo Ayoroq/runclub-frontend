@@ -1,8 +1,17 @@
 import styles from "./Components.module.css";
 export default function DashLeft() {
+
+    function handleHomeClick(){
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }
+
   return (
     <section className={styles.leftNavContainer}>
-      <div className={styles.leftNavItem}>
+      <div className={styles.leftNavItem} onClick={handleHomeClick}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
