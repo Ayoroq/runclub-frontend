@@ -1,6 +1,4 @@
 import styles from "./pages.module.css";
-import Button from "../components/Button";
-import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
