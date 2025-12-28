@@ -97,11 +97,22 @@
 }
 
 .leftNavItem{
-    padding: 1rem 0;
+    padding: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 1rem;
+    width: 100%;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.leftNavItem:last-child:hover{
+    background-color: transparent;
+}
+
+.leftNavItem:hover{
+    background-color: rgb(244, 244, 244);
 }
 
 .leftNavContainer p{
