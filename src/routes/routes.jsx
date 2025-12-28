@@ -5,6 +5,7 @@ import Login from '../pages/Login.jsx'
 import Signup from '../pages/Signup.jsx'
 import NotAuthorized from '../pages/NotAuthorized.jsx'
 import Dashboard from '../pages/DashBoard.jsx'
+import ComposePost from '../pages/ComposePost.jsx'
 
 const routes = [
     {
@@ -27,6 +28,10 @@ const routes = [
             {
                 path: '/dashboard',
                 element: <Dashboard />
+            },
+            {
+                path: '/compose/post',
+                element: <ComposePost />
             },
             {
                 path: '/403',

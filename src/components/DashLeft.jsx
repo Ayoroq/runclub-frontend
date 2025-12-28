@@ -1,6 +1,8 @@
 import styles from "./Components.module.css";
-export default function DashLeft() {
+import { useNavigate } from "react-router";
 
+export default function DashLeft() {
+    const navigate = useNavigate();
     function handleHomeClick(){
         window.scrollTo({
             top: 0,
@@ -108,7 +110,7 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.leftNav}`}>Settings</p>
       </div>
-      <div className={styles.leftNavItem}>
+      <div className={styles.leftNavItem} onClick={() => navigate('/compose/post')}>
         <button className={styles.postButton}>Post</button>
       </div>
     </section>
