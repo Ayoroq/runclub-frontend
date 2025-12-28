@@ -41,6 +41,11 @@ useEffect(() => {
   return (
     <main className={styles.dashboard}>
       <Post posts={posts}/>
+      <div className={styles.subscribe}>
+        <h2>Subscribe to Membership</h2>
+        <p>Join our community of runners and meet fellow minded people</p>
+        <button className={styles.subscribeButton}>Subscribe</button>
+      </div>
     </main>
   );
 }

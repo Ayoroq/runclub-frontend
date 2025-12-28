@@ -28,3 +28,36 @@
     color: blue;
     cursor: pointer;
 }
+
+/* Dashboard */
+.dashboard{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.subscribe{
+  margin: 0;
+  border: 1px solid var(--border);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+ justify-content: flex-start;
+  gap: 1rem;
+  max-width: 300px;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.subscribe > *{
+  margin: 0;
+}
+
+.subscribeButton{
+  align-self: flex-start;
+  padding: 0.5rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}

@@ -49,6 +49,7 @@
     border-right: 0.5px solid var(--border);
     border-left: 0.5px solid var(--border);
     width: fit-content;
+    margin: 0;
 }
 
 .post{
