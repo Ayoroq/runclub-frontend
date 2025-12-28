@@ -1,7 +1,31 @@
 export default function DashLeft(){
     return(
         <>
-            
+            <div>
+                <p>Home</p>
+            </div>
+            <div>
+                <p>Explore</p>
+            </div>
+            <div>
+                <p>Notifications</p>
+            </div>
+            <div>
+                <p>Messages</p>
+            </div>
+            <div>
+                <p>Profile</p>
+            </div>
+            <div>
+                <p>Communities</p>
+            </div>
+            <div>
+                <p>Bookmarks</p>
+            </div>
+            <div>
+                <p>Settings</p>
+            </div>
+            <button>Post</button>
         </>
     )
 }

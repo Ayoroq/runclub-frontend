@@ -1,5 +1,6 @@
 :root{
-  --nav-height: 93px
+  --nav-height: 93px;
+  --hover: rgb(229, 229, 228);
 }
 
 /* signup and login forms */
@@ -69,5 +70,5 @@
 }
 
 .subscribeButton:hover {
-  background-color: rgb(229, 229, 228);
+  background-color: var(--hover)
 }
