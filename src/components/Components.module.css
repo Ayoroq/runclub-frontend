@@ -1,86 +1,104 @@
-:root{
-    --background: rgb(83, 100, 113);
-    --border: rgb(185, 202, 211);
+:root {
+  --background: rgb(83, 100, 113);
+  --border: rgb(185, 202, 211);
 }
 
 /* Navbar */
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
-.logo{
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: clamp(20px,2vw,30px);
-    margin: 0;
+.logo {
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: clamp(20px, 2vw, 30px);
+  margin: 0;
 }
 
-.navbarRight{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+.navbarRight {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.logoutButton, .username{
-    cursor: pointer;
+.logoutButton,
+.username {
+  cursor: pointer;
 }
 
-.loginButton,.signupButton{
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
+.loginButton,
+.signupButton {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
-.postContainer{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    border-right: 0.5px solid var(--border);
-    border-left: 0.5px solid var(--border);
-    width: fit-content;
-    margin: 0;
+.postContainer {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-right: 0.5px solid var(--border);
+  border-left: 0.5px solid var(--border);
+  width: fit-content;
+  margin: 0;
 }
 
-.post{
-    border-bottom: 0.5px solid var(--border);
-    display: flex;
-    flex-direction:column-reverse;
-    gap: 0.5rem;
-    padding: 1rem;
-    padding-top: 1rem;
-    max-width: 500px;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.post {
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  padding: 1rem;
+  padding-top: 1rem;
+  max-width: 500px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.post:hover{
-    background-color: rgb(244, 244, 244);
+.post:hover {
+  background-color: rgb(244, 244, 244);
 }
 
-.post:first-child{
-    border-top: 0.5px solid var(--border)
+.post:first-child {
+  border-top: 0.5px solid var(--border);
 }
 
 .post * {
+  margin: 0;
+}
+
+.postContent {
+  line-height: 1.5;
+}
+
+.postInfo {
+  color: var(--background);
+}
+
+/* Dashleft */
+.leftNavContainer {
+  height: fit-content;
+  position: sticky;
+  top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.leftNavContainer p{
     margin: 0;
-}
-
-.postContent{
-    line-height: 1.5;
-}
-
-.postInfo{
-    color: var(--background);
+    font-size: 1.1rem;
+    text-align: left;
 }

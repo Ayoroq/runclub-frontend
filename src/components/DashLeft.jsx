@@ -1,31 +1,32 @@
+import styles from './Components.module.css'
 export default function DashLeft(){
     return(
-        <>
+        <section className={styles.leftNavContainer}>
             <div>
-                <p>Home</p>
+                <p className={`${styles.active} ${styles.leftNav}`}>Home</p>
             </div>
             <div>
-                <p>Explore</p>
+                <p className={`${styles.leftNav}`}>Explore</p>
             </div>
             <div>
-                <p>Notifications</p>
+                <p className={`${styles.leftNav}`}>Notifications</p>
             </div>
             <div>
-                <p>Messages</p>
+                <p className={`${styles.leftNav}`}>Messages</p>
             </div>
             <div>
-                <p>Profile</p>
+                <p className={`${styles.leftNav}`}>Profile</p>
             </div>
             <div>
-                <p>Communities</p>
+                <p className={`${styles.leftNav}`}>Communities</p>
             </div>
             <div>
-                <p>Bookmarks</p>
+                <p className={`${styles.leftNav}`}>Bookmarks</p>
             </div>
             <div>
-                <p>Settings</p>
+                <p className={`${styles.leftNav}`}>Settings</p>
             </div>
-            <button>Post</button>
-        </>
+            <button className={styles.postButton}>Post</button>
+        </section>
     )
 }
