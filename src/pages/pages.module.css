@@ -1,3 +1,7 @@
+:root{
+  --nav-height: 93px
+}
+
 /* signup and login forms */
 .form {
   display: flex;
@@ -22,39 +26,40 @@
   border-bottom: 1px solid;
 }
 
-
 /* Home Page */
-.loginLink{
-    color: blue;
-    cursor: pointer;
+.loginLink {
+  color: blue;
+  cursor: pointer;
 }
 
 /* Dashboard */
-.dashboard{
+.dashboard {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
 }
 
-.subscribe{
+.subscribe {
   margin: 0;
   border: 1px solid var(--border);
   height: fit-content;
   display: flex;
   flex-direction: column;
- justify-content: flex-start;
+  justify-content: flex-start;
   gap: 1rem;
   max-width: 300px;
   border-radius: 5px;
   padding: 1rem;
   text-align: left;
+  position: sticky;
+  top: var(--nav-height)
 }
 
-.subscribe > *{
+.subscribe > * {
   margin: 0;
 }
 
-.subscribeButton{
+.subscribeButton {
   align-self: flex-start;
   padding: 0.5rem 1.25rem;
   border-radius: 10px;
@@ -63,6 +68,6 @@
   transition: background-color 0.3s ease;
 }
 
-.subscribeButton:hover{
+.subscribeButton:hover {
   background-color: rgb(229, 229, 228);
 }
