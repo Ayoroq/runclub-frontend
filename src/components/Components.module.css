@@ -40,7 +40,6 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     padding: 0;
     border-right: 0.5px solid var(--border);
     border-left: 0.5px solid var(--border);
@@ -53,9 +52,10 @@
     flex-direction:column-reverse;
     gap: 0.5rem;
     padding: 1rem;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
     max-width: 500px;
     text-align: left;
+    cursor: pointer;
 }
 
 .post * {

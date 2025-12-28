@@ -6,6 +6,7 @@ export function AuthProvider({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const [isRunner, setIsRunner] = useState(false)
 
     async function checkAuth() {
         try {
@@ -16,9 +17,11 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
+                setIsRunner(data.user.isRunner);
             } else {
                 setIsLoggedIn(false);
                 setUser(null);
+                setIsRunner(false);
             }
         } catch {
             setIsLoggedIn(false);
@@ -44,11 +47,12 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
+                setIsRunner(data.user.isRunner);
                 return { success: true };
             }
             return { success: false, error: 'Invalid credentials' };
         } catch (error) {
-            return { success: false, error: 'Login failed' };
+            return { success: false, error: error };
         }
     }
 
@@ -68,7 +72,7 @@ export function AuthProvider({ children }) {
             }
             return { success: false, error: 'Signup failed' };
         } catch (error) {
-            return { success: false, error: 'Signup failed' };
+            return { success: false, error: error };
         }
     }
 
@@ -87,7 +91,7 @@ export function AuthProvider({ children }) {
             }
             return { success: false, error: 'Update failed' };
         } catch (error) {
-            return { success: false, error: 'Update failed' };
+            return { success: false, error: error };
         }
     }
 
@@ -105,7 +109,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
+        <AuthContext.Provider value={{ isLoggedIn, isRunner, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,5 +1,9 @@
 import styles from "./Components.module.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 export default function PostCard({posts}){
+    const { isLoggedIn, loading } = useContext(AuthContext);
     return(
        <ul className={styles.postContainer}>
         {posts.map((post) => (
