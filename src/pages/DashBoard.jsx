@@ -42,9 +42,6 @@ useEffect(() => {
   
   return (
     <main className={styles.dashboard}>
-      <h1>This is the dashboard</h1>
-      <p>Here you can see all the events you have joined</p>
-      <p>Here you can also create a new event</p>
       <Post posts={posts}/>
     </main>
   );
