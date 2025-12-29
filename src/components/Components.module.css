@@ -16,13 +16,10 @@
   padding-bottom: 2rem;
 }
 
-.logo {
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-size: clamp(20px, 2vw, 30px);
+.lottie {
   margin: 0;
+  width: 70px;
+  cursor: pointer;
 }
 
 .navbarRight {
