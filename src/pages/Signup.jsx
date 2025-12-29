@@ -2,7 +2,7 @@ import styles from "./pages.module.css";
 import Button from "../components/Button.jsx";
 import buttonStyles from "../components/Button.module.css";
 import { useNavigate } from "react-router";
-import { use, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext.jsx";
 
 export default function Signup() {
@@ -33,8 +33,10 @@ export default function Signup() {
   return (
     <main className={styles.signupMain}>
       <div className={styles.signupContainer}>
-        <h1>Ready to Start your Running Journey?</h1>
-        <p className={styles.signupText}>Sign up to our run club now to join our community!</p>
+        <h1>Ready to Start Running</h1>
+        <p className={styles.signupText}>
+          Sign up to our run club now to join our community!
+        </p>
         <form action="" onSubmit={handleFormSubmit} className={styles.form}>
           <p>
             <label htmlFor="firstName">First Name</label>
@@ -86,7 +88,11 @@ export default function Signup() {
         </p>
       </div>
       <div className={styles.signUpImageContainer}>
-        <img className={styles.signUpImage} src="/signup-run.jpg" alt="A man running" />
+        <img
+          className={styles.signUpImage}
+          src="/new_run.jpg"
+          alt="A man running"
+        />
       </div>
     </main>
   );
