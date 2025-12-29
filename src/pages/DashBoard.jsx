@@ -58,7 +58,7 @@ export default function Dashboard() {
           <button className={styles.adminButton}>Subscribe</button>
         </div>
       </div>
-      <div className={styles.phonePostButtonContainer}>
+      <div className={styles.phonePostButtonContainer} onClick={() => navigate("/compose/post")}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"

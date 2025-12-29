@@ -11,6 +11,7 @@ function App() {
   const lenisRef = useRef();
   const location = useLocation();
   const hideNavbar = ["/login", "/signup"].includes(location.pathname);
+  const hideMobileNav = ["/login", "/signup", "/compose/post"].includes(location.pathname);
 
   useEffect(() => {
     function update(time) {
@@ -28,7 +29,7 @@ function App() {
       <>
         {!hideNavbar && <Navbar />}
         <Outlet />
-        <MobileNav />
+        {!hideMobileNav && <MobileNav />}
       </>
     </AuthProvider>
     </ReactLenis>

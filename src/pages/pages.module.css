@@ -87,12 +87,12 @@
   display: none;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .phonePostButton {
   fill: white;
   width: 30px;
-  cursor: pointer;
 }
 
 /* Post message */
