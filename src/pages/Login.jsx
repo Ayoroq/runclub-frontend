@@ -38,14 +38,21 @@ export default function Login() {
   return (
     <main className={styles.loginMain}>
       <div className={styles.Loginlogo}>
-        <DotLottieReact
-          src="/logo.lottie"
-          autoplay
-          loop
-          className={styles.lottie}
-          onClick={() => navigate("/")}
-        />
-        <p>Sign into Runners</p>
+        <div className={styles.lotties} onClick={() => navigate("/")}>
+          <DotLottieReact
+            src="/logo.lottie"
+            autoplay
+            loop
+            className={styles.lottie}
+          />
+          <DotLottieReact
+            src="/cycle.lottie"
+            autoplay
+            loop
+            className={styles.lottie}
+          />
+        </div>
+        <p>Sign into Runners & Cyclers</p>
       </div>
       <form action="" onSubmit={handleLoginSubmit} className={styles.form}>
         <p>

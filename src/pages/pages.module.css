@@ -129,6 +129,11 @@ h3 {
   font-size: 2rem;
 }
 
+.lotties{
+  display: flex;
+  cursor: pointer;
+}
+
 .guest{
   padding-top: 2rem;
 }
