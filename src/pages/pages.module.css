@@ -29,28 +29,48 @@
 
 /* Home Page */
 .home {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.title{
+.title {
   font-size: 8vw;
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
-.imageContainer{
-
+.imageContainer {
+  max-height: 600px;
+  overflow: hidden;
 }
 .image {
   width: 100%;
   display: block;
   margin: 0 auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 .loginLink {
   color: blue;
   cursor: pointer;
+}
+
+.text {
+  text-align: left;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h2,
+h3 {
+  text-align: left;
+}
+
+.list {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  padding: 0;
 }
 
 /* Dashboard */
