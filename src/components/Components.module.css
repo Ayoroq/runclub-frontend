@@ -174,3 +174,9 @@
     align-items: center;
   }
 }
+
+@media (max-width: 620px){
+    .leftNavContainer{
+        display: none;
+    }
+}

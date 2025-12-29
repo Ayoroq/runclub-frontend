@@ -125,3 +125,9 @@ textarea{
   color: white;
   opacity: 0.5;
 }
+
+@media (max-width: 1050px){
+  .subscribe, .admin{
+    display: none;
+  }
+}
