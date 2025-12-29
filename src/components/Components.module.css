@@ -155,6 +155,10 @@
   width: 30px;
 }
 
+.moreButton{
+    display: none;
+}
+
 /* Bottom Nav */
 .bottomNav {
   display: none;
@@ -187,6 +191,12 @@
 
   .leftNavContainer {
     align-items: center;
+  }
+}
+
+@media (max-width: 1050px) {
+     .moreButton{
+    display: block;
   }
 }
 
