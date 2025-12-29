@@ -96,93 +96,106 @@
   flex-direction: column;
 }
 
-.leftNavItem{
-    padding: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: fit-content;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
+.leftNavItem {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-.leftNavItem:last-child:hover{
-    background-color: transparent;
+.leftNavItem:last-child:hover {
+  background-color: transparent;
 }
 
-.leftNavItem:hover{
-    background-color: rgb(244, 244, 244);
+.leftNavItem:hover {
+  background-color: rgb(244, 244, 244);
 }
 
-.leftNavContainer p{
-    margin: 0;
-    font-size: 1.1rem;
-    text-align: left;
+.leftNavContainer p {
+  margin: 0;
+  font-size: 1.1rem;
+  text-align: left;
 }
 
-.leftNavIcon{
-    width: 20px;
-    height: 20px;
+.leftNavIcon {
+  width: 20px;
+  height: 20px;
 }
 
-.postButton{
-    padding: 0.75rem 5rem;
-    font-size: 1.25rem;
-    border-radius: 20px;
-    border: none;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.postButton {
+  padding: 0.75rem 5rem;
+  font-size: 1.25rem;
+  border-radius: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.postButton:hover{
-    background-color: rgb(43, 43, 43);
+.postButton:hover {
+  background-color: rgb(43, 43, 43);
 }
 
-.mobilePostButtonContainer{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: black;
-    display: none;
-    align-items: center;
-    justify-content: center;
+.mobilePostButtonContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: black;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.mobilePostButton{
-    fill: white;
-    width: 30px;
+.mobilePostButton {
+  fill: white;
+  width: 30px;
 }
 
 /* Bottom Nav */
-.bottomNavIcon{
-    width: 20px;
-    height: 20px;
+.bottomNav {
+  display: none;
 }
 
+.bottomNavIcon {
+  width: 30px;
+  height: 30px;
+}
 
 @media (max-width: 1200px) {
-  .leftNav{
+  .leftNav {
     display: none;
   }
 
-  .postButton{
+  .postButton {
     display: none;
   }
 
-  .mobilePostButtonContainer{
+  .mobilePostButtonContainer {
     display: flex;
   }
 
-  .leftNavContainer{
+  .leftNavContainer {
     align-items: center;
   }
 }
 
-@media (max-width: 620px){
-    .leftNavContainer{
-        display: none;
-    }
+@media (max-width: 620px) {
+  .leftNavContainer {
+    display: none;
+  }
+
+  .bottomNav {
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    padding: 1rem;
+    background-color: white;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+  }
 }

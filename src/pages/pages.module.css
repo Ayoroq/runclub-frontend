@@ -131,3 +131,9 @@ textarea{
     display: none;
   }
 }
+
+@media (max-width: 620px){
+  .dashboard{
+    gap: 0;
+  }
+}
