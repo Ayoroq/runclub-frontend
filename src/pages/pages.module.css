@@ -4,6 +4,31 @@
 }
 
 /* signup and login forms */
+h1{
+  margin: 0;
+  text-align: center;
+}
+.signupMain{
+  min-height: 100vh;
+  display: flex;
+  gap: 6rem;
+  justify-content: space-between;
+}
+.signupContainer{
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signUpImageContainer{
+  flex: 0.5;
+}
+
+.signUpImage{
+  height: 100vh;
+}
+
 .form {
   display: flex;
   flex-direction: column;

@@ -35,11 +35,12 @@
 }
 
 .signupButton{
-    background-color: rgb(224, 188, 26);
+    background-color: black;
+    border-radius: 20px;
 }
 
 .signupButton:hover{
-    background-color: rgb(188, 158, 21);
+    background-color: rgb(46, 46, 46);
 }
 
 @media (max-width: 600px) {
