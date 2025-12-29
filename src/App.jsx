@@ -1,6 +1,7 @@
 import { useEffect,useRef } from "react";
 import { Outlet, useLocation } from "react-router";
 import Navbar from "./components/Navbar";
+import MobileNav from "./components/MobileNav";
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import { gsap } from "gsap";
@@ -27,6 +28,7 @@ function App() {
       <>
         {!hideNavbar && <Navbar />}
         <Outlet />
+        <MobileNav />
       </>
     </AuthProvider>
     </ReactLenis>
