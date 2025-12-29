@@ -154,7 +154,7 @@ textarea{
   }
   .phonePostButtonContainer{
     display: flex;
-    bottom: 70px;
+    bottom: 78px;
     right: 1.5rem;
     position: fixed;
     z-index: 10;
