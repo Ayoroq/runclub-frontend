@@ -13,12 +13,19 @@
   top: 0;
   background-color: white;
   padding: 2rem 0;
+  padding-right: 1rem;
 }
 
 .lottie {
   margin: 0;
   width: 70px;
   cursor: pointer;
+}
+
+.navbarLeft{
+    display: flex;
+    cursor: pointer;
+    margin-left: 1rem;
 }
 
 .navbarRight {
@@ -34,6 +41,7 @@
 
 .loginButton,
 .signupButton {
+    padding: 0;
   font-size: 1.25rem;
   cursor: pointer;
   border: none;

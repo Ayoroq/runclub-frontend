@@ -26,7 +26,7 @@ export default function Home() {
       <div className={styles.imageContainer}>
         <img
           className={styles.image}
-          src="/run.jpg"
+          src="/cycle_home.jpg"
           alt="Image of people running"
         />
       </div>

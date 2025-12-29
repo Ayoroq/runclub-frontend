@@ -14,13 +14,18 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarLeft}>
+      <div className={styles.navbarLeft} onClick={() => navigate("/")}>
           <DotLottieReact
             src="/logo.lottie"
             autoplay
             loop
             className={styles.lottie}
-            onClick={() => navigate("/")}
+          />
+          <DotLottieReact
+            src="/cycle.lottie"
+            autoplay
+            loop
+            className={styles.lottie}
           />
       </div>
       <div className={styles.navbarRight}>
