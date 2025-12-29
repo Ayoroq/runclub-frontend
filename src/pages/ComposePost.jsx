@@ -1,8 +1,13 @@
 import styles from "./pages.module.css";
+import { useNavigate } from "react-router";
 export default function Post() {
+    const navigate = useNavigate();
+  function handleCancel() {
+    navigate(-1);
+  }
   return (
     <section className={styles.postSection}>
-      <div>
+      <div onClick={handleCancel}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"

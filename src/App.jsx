@@ -9,7 +9,7 @@ import { ReactLenis } from "lenis/react";
 function App() {
   const lenisRef = useRef();
   const location = useLocation();
-  const hideNavbar = ["/login", "/signup","/compose/post"].includes(location.pathname);
+  const hideNavbar = ["/login", "/signup"].includes(location.pathname);
 
   useEffect(() => {
     function update(time) {
