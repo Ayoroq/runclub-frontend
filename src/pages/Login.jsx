@@ -1,9 +1,10 @@
-import styles from './pages.module.css'
-import Button from '../components/Button'
-import buttonStyles from '../components/Button.module.css'
-import { useNavigate } from 'react-router'
-import {useContext, useEffect} from 'react'
-import { AuthContext } from '../context/AuthContext'
+import styles from "./pages.module.css";
+import Button from "../components/Button";
+import buttonStyles from "../components/Button.module.css";
+import { useNavigate } from "react-router";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,28 +12,37 @@ export default function Login() {
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
-  }, [isLoggedIn,loading, navigate]);
+  }, [isLoggedIn, loading, navigate]);
 
-  async function  handleLoginSubmit(e) {
-    e.preventDefault()
-    const formData = new FormData(e.target)
+  async function handleLoginSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
     const response = await loginUser(data);
     if (!response.success) {
-      console.error('Login failed')
+      console.error("Login failed");
     }
   }
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
-    <main className={styles.main}>
-      <h1>Login</h1>
+    <main className={styles.loginMain}>
+      <div className={styles.Loginlogo}>
+        <DotLottieReact
+          src="/logo.lottie"
+          autoplay
+          loop
+          className={styles.lottie}
+          onClick={() => navigate("/")}
+        />
+        <p>Sign into Runners</p>
+      </div>
       <form action="" onSubmit={handleLoginSubmit} className={styles.form}>
         <p>
           <label htmlFor="username">Username</label>
@@ -40,10 +50,29 @@ export default function Login() {
         </p>
         <p>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required minLength={8} />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            minLength={8}
+          />
         </p>
-        <Button type="submit" className={buttonStyles.loginButton}  text="Login" color="green" />
+        <Button
+          type="submit"
+          className={buttonStyles.loginButton}
+          text="Login"
+        />
       </form>
+      <div className={styles.guest}>
+        <hr />
+        <p>Don't have an account?</p>
+        <Button
+          className={buttonStyles.signupButton}
+          text="Continue As Guest"
+          onClick={''}
+        />
+      </div>
     </main>
-  )
+  );
 }
