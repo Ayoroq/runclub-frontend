@@ -38,6 +38,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-between;
+  min-height: 100vh;
 }
 
 .dashRight {

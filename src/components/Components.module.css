@@ -48,14 +48,13 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  border-right: 0.5px solid var(--border);
-  border-left: 0.5px solid var(--border);
   width: fit-content;
   margin: 0;
 }
 
 .post {
-  border-bottom: 0.5px solid var(--border);
+  border: 0.5px solid var(--border);
+  border-top: 0;
   display: flex;
   flex-direction: column-reverse;
   gap: 0.5rem;
