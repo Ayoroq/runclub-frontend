@@ -15,7 +15,6 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
         <h1 className={styles.logo} onClick={() => navigate("/")}>
-          Run Club
           <span>
             <svg
               width="40"

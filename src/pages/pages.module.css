@@ -28,6 +28,26 @@
 }
 
 /* Home Page */
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 8vw;
+  display: flex;
+  justify-content: space-between;
+}
+.imageContainer{
+
+}
+.image {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
 .loginLink {
   color: blue;
   cursor: pointer;
@@ -50,7 +70,8 @@
   gap: 1rem;
 }
 
-.subscribe, .admin {
+.subscribe,
+.admin {
   margin: 0;
   border: 1px solid var(--border);
   display: flex;
@@ -63,11 +84,13 @@
   text-align: left;
 }
 
-.subscribe > *, .admin > * {
+.subscribe > *,
+.admin > * {
   margin: 0;
 }
 
-.subscribeButton, .adminButton {
+.subscribeButton,
+.adminButton {
   align-self: flex-start;
   padding: 0.5rem 1.25rem;
   border-radius: 10px;
@@ -76,7 +99,8 @@
   transition: background-color 0.3s ease;
 }
 
-.subscribeButton:hover, .adminButton:hover {
+.subscribeButton:hover,
+.adminButton:hover {
   background-color: var(--hover);
 }
 
@@ -97,7 +121,7 @@
 }
 
 /* Post message */
-.postSection{
+.postSection {
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -106,7 +130,7 @@
   border-radius: 10px;
 }
 
-textarea{
+textarea {
   outline: none;
   resize: none;
   border: none;
@@ -117,21 +141,21 @@ textarea{
   field-sizing: content;
 }
 
-.postCancel{
+.postCancel {
   width: 20px;
   height: 20px;
   color: rgb(15, 20, 25);
   cursor: pointer;
 }
 
-.postButtonDiv{
+.postButtonDiv {
   width: 100%;
-  border-top: 1px solid #EFF3F4;
+  border-top: 1px solid #eff3f4;
   display: flex;
   justify-content: flex-end;
 }
 
-.postButton{
+.postButton {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -142,17 +166,18 @@ textarea{
   opacity: 0.5;
 }
 
-@media (max-width: 1050px){
-  .subscribe, .admin{
+@media (max-width: 1050px) {
+  .subscribe,
+  .admin {
     display: none;
   }
 }
 
-@media (max-width: 620px){
-  .dashboard{
+@media (max-width: 620px) {
+  .dashboard {
     gap: 0;
   }
-  .phonePostButtonContainer{
+  .phonePostButtonContainer {
     display: flex;
     bottom: 78px;
     right: 1.5rem;
