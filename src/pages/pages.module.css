@@ -79,6 +79,21 @@
   background-color: var(--hover);
 }
 
+.phonePostButtonContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: black;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.phonePostButton {
+  fill: white;
+  width: 30px;
+  cursor: pointer;
+}
 
 /* Post message */
 .postSection{
@@ -135,5 +150,12 @@ textarea{
 @media (max-width: 620px){
   .dashboard{
     gap: 0;
+  }
+  .phonePostButtonContainer{
+    display: flex;
+    bottom: 70px;
+    right: 1.5rem;
+    position: fixed;
+    z-index: 10;
   }
 }
