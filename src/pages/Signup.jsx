@@ -80,6 +80,15 @@ export default function Signup() {
             text="Signup"
           />
         </form>
+        <div className={styles.guest}>
+          <hr />
+          <p>Don't want an account?</p>
+          <Button
+            className={buttonStyles.signupButton}
+            text="Continue As Guest"
+            onClick={""}
+          />
+        </div>
         <p>
           Already have an account?{" "}
           <span className={styles.loginLink} onClick={() => navigate("/login")}>
