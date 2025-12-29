@@ -102,7 +102,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    width: 100%;
+    width: fit-content;
     border-radius: 20px;
     transition: background-color 0.3s ease;
 }
@@ -139,4 +139,38 @@
 
 .postButton:hover{
     background-color: rgb(43, 43, 43);
+}
+
+.mobilePostButtonContainer{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: black;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobilePostButton{
+    fill: white;
+    width: 30px;
+}
+
+
+@media (max-width: 1200px) {
+  .leftNav{
+    display: none;
+  }
+
+  .postButton{
+    display: none;
+  }
+
+  .mobilePostButtonContainer{
+    display: flex;
+  }
+
+  .leftNavContainer{
+    align-items: center;
+  }
 }
