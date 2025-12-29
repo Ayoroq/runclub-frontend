@@ -17,16 +17,22 @@
 .button:active {
   transform: translateY(0);
 }
-.loginButton:hover{
-    background-color: rgb(46, 46, 46);
-}
 
-.signupButton, .loginButton{
+.guestButton{
     background-color: black;
     border-radius: 20px;
 }
 
-.signupButton:hover{
+.loginButton,.signupButton{
+  background-color: green;
+  border-radius: 20px;
+}
+
+.loginButton:hover, .signupButton:hover{
+    background-color: rgb(0, 173, 0)
+}
+
+.guestButton:hover{
     background-color: rgb(46, 46, 46);
 }
 

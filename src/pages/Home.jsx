@@ -13,6 +13,10 @@ export default function Home() {
     }
   }, [isLoggedIn, loading, navigate]);
 
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [])
+
   if (loading) {
     return null;
   }

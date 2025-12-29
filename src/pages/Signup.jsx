@@ -15,6 +15,10 @@ export default function Signup() {
     }
   }, [isLoggedIn, loading, navigate]);
 
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [])
+
   async function handleFormSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -84,7 +88,7 @@ export default function Signup() {
           <hr />
           <p>Don't want an account?</p>
           <Button
-            className={buttonStyles.signupButton}
+            className={buttonStyles.guestButton}
             text="Continue As Guest"
             onClick={""}
           />

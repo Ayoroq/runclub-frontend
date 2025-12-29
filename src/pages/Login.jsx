@@ -16,6 +16,10 @@ export default function Login() {
     }
   }, [isLoggedIn, loading, navigate]);
 
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
+
   async function handleLoginSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -66,11 +70,11 @@ export default function Login() {
       </form>
       <div className={styles.guest}>
         <hr />
-        <p>Don't have an account?</p>
+        <p>Don't want an account?</p>
         <Button
-          className={buttonStyles.signupButton}
+          className={buttonStyles.guestButton}
           text="Continue As Guest"
-          onClick={''}
+          onClick={""}
         />
       </div>
     </main>
