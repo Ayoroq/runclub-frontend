@@ -1,14 +1,21 @@
 import styles from "./Components.module.css";
 import { useNavigate } from "react-router";
+import Subscribe from './Subscribe'
+import {useState} from 'react'
 
 export default function DashLeft() {
   const navigate = useNavigate();
+  const [isDropDownActive, setIsDropDownActive] = useState(false)
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
+  }
+
+  function handleMoreButtonClick() {
+    setIsDropDownActive(!isDropDownActive)
   }
 
   return (
@@ -25,7 +32,7 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.active} ${styles.leftNav}`}>Home</p>
       </div>
-      <div className={`${styles.leftNavItem} ${styles.moreButton}`}>
+      <div className={`${styles.leftNavItem} ${styles.moreButton}`} onClick={handleMoreButtonClick}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -35,6 +42,16 @@ export default function DashLeft() {
             <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path>
           </g>
         </svg>
+        <div style={isDropDownActive ? {display:'flex'} : undefined} className={styles.DropDownContainer}>
+            <div>
+              <p>Want to be become a member?</p>
+              <button className={styles.subscribeButton}>Subscribe</button>
+            </div>
+            <div>
+              <p>Want to be an Admin?</p>
+              <button className={styles.admin}>Subscribe</button>
+            </div>
+        </div>
       </div>
       <div className={styles.leftNavItem}>
         <svg
