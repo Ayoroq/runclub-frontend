@@ -6,8 +6,8 @@ export function AuthProvider({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
-    const [isRunner, setIsRunner] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
+    const [isMember, setIsMember] = useState(false)
 
     async function checkAuth() {
         try {
@@ -18,12 +18,12 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsRunner(data.user.isRunner);
+                setIsMember(data.user.isMember);
                 setIsAdmin(data.user.isAdmin);
             } else {
                 setIsLoggedIn(false);
                 setUser(null);
-                setIsRunner(false);
+                setIsMember(false);
                 setIsAdmin(false);
             }
         } catch {
@@ -50,8 +50,8 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsRunner(data.user.isRunner);
                 setIsAdmin(data.user.isAdmin);
+                setIsMember(data.user.isMember);
                 return { success: true };
             }
             return { success: false, error: 'Invalid credentials' };
@@ -92,7 +92,7 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsRunner(data.user.isRunner);
+                setIsMember(data.user.isMember);
                 setIsAdmin(data.user.isAdmin);
                 return { success: true };
             }
@@ -116,7 +116,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, isRunner, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
+        <AuthContext.Provider value={{ isLoggedIn, isMember, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
             {children}
         </AuthContext.Provider>
     );
