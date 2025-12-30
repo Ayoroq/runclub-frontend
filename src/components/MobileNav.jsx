@@ -84,15 +84,15 @@ export default function MobileNav() {
           style={isDropDownActive ? { display: "flex" } : undefined}
           className={styles.DropDownContainer}
         >
-          <div>
+          <div className={styles.dropDownItem}>
             <p>Want to be become a member?</p>
             <button ref={buttonRef} className={styles.subscribeButton}>
               Subscribe
             </button>
           </div>
-          <div>
+          <div className={styles.dropDownItem}>
             <p>Want to be an Admin?</p>
-            <button ref={buttonRef} className={styles.admin}>
+            <button ref={buttonRef} className={styles.adminButton}>
               Subscribe
             </button>
           </div>

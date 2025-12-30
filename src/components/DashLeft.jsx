@@ -1,7 +1,7 @@
 import styles from "./Components.module.css";
 import { useNavigate } from "react-router";
 import Subscribe from "./Subscribe";
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function DashLeft() {
   const navigate = useNavigate();
@@ -20,16 +20,16 @@ export default function DashLeft() {
 
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const leftNavContainerRef = useRef(null)
 
   useEffect(() => {
     function handleOutsideClick(event) {
-      if(
+      if (
         isDropDownActive &&
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
         !buttonRef.current.contains(event.target)
-      )
-      {
+      ) {
         setIsDropDownActive(false);
       }
     }
@@ -39,7 +39,7 @@ export default function DashLeft() {
   }, [isDropDownActive]);
 
   return (
-    <section className={styles.leftNavContainer}>
+    <section className={styles.leftNavContainer} ref={leftNavContainerRef}>
       <div className={styles.leftNavItem} onClick={handleHomeClick}>
         <svg
           viewBox="0 0 24 24"
@@ -54,7 +54,8 @@ export default function DashLeft() {
       </div>
       <div
         className={`${styles.leftNavItem} ${styles.moreButton}`}
-        onClick={handleMoreButtonClick} ref={menuRef}
+        onClick={handleMoreButtonClick}
+        ref={menuRef}
       >
         <svg
           viewBox="0 0 24 24"
@@ -69,13 +70,17 @@ export default function DashLeft() {
           style={isDropDownActive ? { display: "flex" } : undefined}
           className={styles.DropDownContainer}
         >
-          <div>
+          <div className={styles.dropDownItem}>
             <p>Want to be become a member?</p>
-            <button ref={buttonRef} className={styles.subscribeButton}>Subscribe</button>
+            <button ref={buttonRef} className={styles.subscribeButton}>
+              Subscribe
+            </button>
           </div>
-          <div>
+          <div className={styles.dropDownItem}>
             <p>Want to be an Admin?</p>
-            <button ref={buttonRef} className={styles.admin}>Subscribe</button>
+            <button ref={buttonRef} className={styles.adminButton}>
+              Subscribe
+            </button>
           </div>
         </div>
       </div>
