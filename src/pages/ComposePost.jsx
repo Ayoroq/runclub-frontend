@@ -1,7 +1,10 @@
 import styles from "./pages.module.css";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+
 export default function Post() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [text, setText] = useState("");
   function handleCancel() {
     navigate(-1);
   }
@@ -18,9 +21,20 @@ export default function Post() {
           </g>
         </svg>
       </div>
-      <textarea autoFocus rows={10} autoCorrect="on" maxLength={280} className={styles.postText} name="textarea" id="post" placeholder="What's happening?"></textarea>
+      <textarea
+        onChange={(e) => setText(e.target.value)}
+        autoFocus
+        rows={10}
+        autoCorrect="on"
+        maxLength={280}
+        className={styles.postText}
+        name="textarea"
+        id="post"
+        placeholder="What's happening?"
+        value={text}
+      ></textarea>
       <div className={styles.postButtonDiv}>
-        <button className={styles.postButton}>Post</button>
+        <button style={text.length > 0 ? {opacity: 1} : undefined} className={styles.postButton}>Post</button>
       </div>
     </section>
   );
