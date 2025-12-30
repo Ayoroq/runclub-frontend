@@ -37,9 +37,9 @@ export default function Signup() {
   return (
     <main className={styles.signupMain}>
       <div className={styles.signupContainer}>
-        <h1>Ready to Start Running</h1>
+        <h1>Ready to Run & Cycle</h1>
         <p className={styles.signupText}>
-          Sign up to our run club now to join our community!
+          Sign up to our club now to join our community!
         </p>
         <form action="" onSubmit={handleFormSubmit} className={styles.form}>
           <p>
