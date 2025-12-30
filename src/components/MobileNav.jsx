@@ -1,6 +1,9 @@
 import styles from "./Components.module.css";
+import { useState, useEffect,useRef } from "react";
 
 export default function MobileNav() {
+  const buttonRef = useRef(null)
+  const [isDropDownActive, setIsDropDownActive] = useState(false);
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -47,15 +50,33 @@ export default function MobileNav() {
           <path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"></path>
         </g>
       </svg>
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className={styles.bottomNavIcon}
-      >
-        <g>
-          <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path>
-        </g>
-      </svg>
+      <div>
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          className={`${styles.bottomNavIcon} ${styles.mobileMoreButton}`}
+          onClick={() => setIsDropDownActive(!isDropDownActive)}
+        >
+          <g>
+            <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path>
+          </g>
+        </svg>
+        <div style={isDropDownActive ? { display: "flex" } : undefined}
+                  className={styles.DropDownContainer}>
+          <div>
+            <p>Want to be become a member?</p>
+            <button ref={buttonRef} className={styles.subscribeButton}>
+              Subscribe
+            </button>
+          </div>
+          <div>
+            <p>Want to be an Admin?</p>
+            <button ref={buttonRef} className={styles.admin}>
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

@@ -206,6 +206,15 @@
     }
 }
 
+@keyframes slideUp{
+    from{
+        transform: translateX(-80%) translateY(0%)
+    }
+    to{
+        transform: translateX(-80%) translateY(-100%);
+    }
+}
+
 @media (max-width: 1200px) {
   .leftNav {
     display: none;
@@ -234,6 +243,11 @@
   .leftNavContainer {
     display: none;
   }
+
+  .DropDownContainer{
+    
+    animation: slideUp 1s ease forwards
+}
 
   .bottomNav {
     border-top: 0.5px solid var(--border);
