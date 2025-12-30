@@ -11,11 +11,11 @@ export default function Dashboard() {
   const { isLoggedIn, loading } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    if (!loading && !isLoggedIn) {
-      navigate("/login");
-    }
-  }, [isLoggedIn, loading, navigate]);
+  // useEffect(() => {
+  //   if (!loading && !isLoggedIn) {
+  //     navigate("/login");
+  //   }
+  // }, [isLoggedIn, loading, navigate]);
 
   useEffect(() => {
     async function getPosts() {

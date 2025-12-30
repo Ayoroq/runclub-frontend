@@ -7,13 +7,20 @@ import { AuthContext } from "../context/AuthContext.jsx";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const { signupUser, isLoggedIn, loading } = useContext(AuthContext);
+  const { setUser,signupUser, isLoggedIn, loading } = useContext(AuthContext);
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
       navigate("/dashboard");
     }
   }, [isLoggedIn, loading, navigate]);
+
+  function handleGuestLogin() {
+    setUser({
+      username: "Anonymous",
+    });
+    navigate("/dashboard");
+  }
 
   useEffect(() => {
     scrollTo(0, 0)
@@ -90,7 +97,7 @@ export default function Signup() {
           <Button
             className={buttonStyles.guestButton}
             text="Continue As Guest"
-            onClick={""}
+            onClick={handleGuestLogin}
           />
         </div>
         <p>

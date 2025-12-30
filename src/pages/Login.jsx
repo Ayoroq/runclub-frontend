@@ -8,13 +8,20 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loginUser, isLoggedIn, loading } = useContext(AuthContext);
+  const { loginUser, isLoggedIn, loading, setUser} = useContext(AuthContext);
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
       navigate("/dashboard");
     }
   }, [isLoggedIn, loading, navigate]);
+
+  function handleGuestLogin() {
+    setUser({
+      username: "Anonymous",
+    });
+    navigate("/dashboard");
+  }
 
   useEffect(() => {
     scrollTo(0, 0);
@@ -81,7 +88,7 @@ export default function Login() {
         <Button
           className={buttonStyles.guestButton}
           text="Continue As Guest"
-          onClick={""}
+          onClick={handleGuestLogin}
         />
       </div>
     </main>
