@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 export default function DashLeft() {
   const navigate = useNavigate();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(null)
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -14,8 +15,24 @@ export default function DashLeft() {
     });
   }
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowWidth])
+
   function handleMoreButtonClick() {
     setIsDropDownActive(!isDropDownActive);
+  }
+
+  if(windowWidth && isDropDownActive && (windowWidth > 1050 || windowWidth < 620)){
+    setIsDropDownActive(false)
   }
 
   const menuRef = useRef(null);
