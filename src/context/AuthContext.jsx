@@ -18,8 +18,8 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsMember(data.user.isMember);
-                setIsAdmin(data.user.isAdmin);
+                setIsMember(data.user.ismember);
+                setIsAdmin(data.user.isadmin);
             } else {
                 setIsLoggedIn(false);
                 setUser(null);
@@ -50,8 +50,8 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsAdmin(data.user.isAdmin);
-                setIsMember(data.user.isMember);
+                setIsAdmin(data.user.isadmin);
+                setIsMember(data.user.ismember);
                 return { success: true };
             }
             return { success: false, error: 'Invalid credentials' };
@@ -92,8 +92,8 @@ export function AuthProvider({ children }) {
                 const data = await res.json();
                 setUser(data.user);
                 setIsLoggedIn(true);
-                setIsMember(data.user.isMember);
-                setIsAdmin(data.user.isAdmin);
+                setIsMember(data.user.ismember);
+                setIsAdmin(data.user.isadmin);
                 return { success: true };
             }
             return { success: false, error: 'Update failed' };
@@ -116,7 +116,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, isMember, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
+        <AuthContext.Provider value={{ isLoggedIn, isMember,isAdmin, loading, user, loginUser, signupUser, updateUser, logout, checkAuth }}>
             {children}
         </AuthContext.Provider>
     );
