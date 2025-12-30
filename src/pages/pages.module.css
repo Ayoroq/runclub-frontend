@@ -292,7 +292,7 @@ textarea {
   }
   .phonePostButtonContainer {
     display: flex;
-    bottom: 78px;
+    bottom: 85px;
     right: 1.5rem;
     position: fixed;
     z-index: 10;

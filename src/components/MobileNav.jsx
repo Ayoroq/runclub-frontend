@@ -5,6 +5,7 @@ export default function MobileNav() {
   const buttonRef = useRef(null);
   const menuRef = useRef(null);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(null);
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -28,6 +29,19 @@ export default function MobileNav() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isDropDownActive]);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (windowWidth && isDropDownActive && windowWidth > 620) {
+    setIsDropDownActive(false);
+  } 
 
   return (
     <main className={styles.bottomNav}>
