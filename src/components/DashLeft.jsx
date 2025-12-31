@@ -3,12 +3,13 @@ import { useNavigate } from "react-router";
 import Subscribe from "./Subscribe";
 import { useState, useEffect, useRef, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import {Subscribed} from './Button'
 
 export default function DashLeft() {
   const navigate = useNavigate();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState(null);
-  const { isLoggedIn, isAdmin, isMember, loading } = useContext(AuthContext);
+  const { isLoggedIn, isAdmin, isMember,user } = useContext(AuthContext);
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -75,7 +76,7 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.active} ${styles.leftNav}`}>Home</p>
       </div>
-      {isLoggedIn &&
+      {isLoggedIn &&  (!user.isadmin || !user.ismember) &&
         <div
           className={`${styles.leftNavItem} ${styles.moreButton}`}
           onClick={handleMoreButtonClick}
@@ -94,18 +95,18 @@ export default function DashLeft() {
             style={isDropDownActive ? { display: "flex" } : undefined}
             className={styles.DropDownContainer}
           >
-            <div className={styles.dropDownItem}>
+            {!user.ismember && <div className={styles.dropDownItem}>
               <p>Want to be become a member?</p>
-              <button ref={buttonRef} className={styles.subscribeButton}>
+             {user.ismember ? <Subscribed/> : <button ref={buttonRef} className={styles.subscribeButton}>
                 Subscribe
-              </button>
-            </div>
-            <div className={styles.dropDownItem}>
+              </button>}
+            </div>}
+            {!user.isadmin && <div className={styles.dropDownItem}>
               <p>Want to be an Admin?</p>
-              <button ref={buttonRef} className={styles.adminButton}>
+              {user.isadmin ? <Subscribed/> :<button ref={buttonRef} className={styles.adminButton}>
                 Subscribe
-              </button>
-            </div>
+              </button>}
+            </div>}
           </div>
         </div>
       }
