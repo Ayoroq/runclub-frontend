@@ -216,19 +216,6 @@ hr::after{
   transition: background-color 0.3s ease;
 }
 
-.subscribed{
-  display: flex;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  background-color: green;
-}
-
 .subscribeButton:hover,
 .adminButton:hover {
   background-color: var(--hover);
