@@ -18,3 +18,22 @@ export default function Subscribe() {
     </>
   );
 }
+
+export function Trending() {
+  return (
+    <div className={styles.trending}>
+      <div className={styles.trendingItem}>
+        <h3>Runners</h3>
+        <p>See who is running</p>
+      </div>
+      <div className={styles.trendingItem}>
+        <h3>Events</h3>
+        <p>See what is happening</p>
+      </div>
+      <div className={styles.trendingItem}>
+        <h3>Groups</h3>
+        <p>See what groups are running</p>
+      </div>
+    </div>
+  );
+}
