@@ -39,7 +39,7 @@ export default function Dashboard() {
   return (
     <main className={styles.dashboard}>
       <DashLeft />
-      <Post posts={posts} />
+      <Post posts={posts} setPosts={setPosts} />
       <div className={styles.dashRight}>
         {isLoggedIn && <div className={styles.subscribeContainer}>
           <Subscribe />
