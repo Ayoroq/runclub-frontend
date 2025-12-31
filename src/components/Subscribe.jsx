@@ -1,21 +1,25 @@
 import styles from "../pages/pages.module.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import {Subscribed} from './Button'
+import { Subscribed } from "./Button";
+import { useSubscribeToMembership } from "../utils/SubscribeFunctions";
 
 export default function Subscribe() {
   const { user } = useContext(AuthContext);
+  const subscribe = useSubscribeToMembership();
   return (
     <>
-      {!user.ismember && <div className={styles.subscribe}>
-        <h2>Subscribe to Membership</h2>
-        <p>Join our community of runners and meet fellow minded people</p>
-        {user.ismember ? (
-          <Subscribed/>
-        ) : (
-          <button className={styles.subscribeButton}>Subscribe</button>
-        )}
-      </div>}
+      {!user.ismember && (
+        <div className={styles.subscribe}>
+          <h2>Subscribe to Membership</h2>
+          <p>Join our community of runners and meet fellow minded people</p>
+          {user.ismember ? (
+            <Subscribed />
+          ) : (
+            <button className={styles.subscribeButton} onClick={subscribe}>Subscribe</button>
+          )}
+        </div>
+      )}
 
       {!user.isadmin && (
         <div className={styles.admin}>
@@ -25,9 +29,9 @@ export default function Subscribe() {
             runners by joining our admin team.
           </p>
           {user.isadmin ? (
-            <Subscribed/>
+            <Subscribed />
           ) : (
-            <button className={styles.adminButton}>Subscribe</button>
+            <button className={styles.adminButton} >Subscribe</button>
           )}
         </div>
       )}
@@ -53,3 +57,4 @@ export function Trending() {
     </div>
   );
 }
+
