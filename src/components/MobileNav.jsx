@@ -1,5 +1,5 @@
 import styles from "./Components.module.css";
-import { useState, useEffect, useRef, useContext, use } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Subscribed } from "./Button";
 import { useSubscribeToMembership, useSubscribeToAdmin } from "../utils/SubscribeFunctions";
@@ -30,7 +30,6 @@ export default function MobileNav() {
         !memberRef.current.contains(event.target)
       ) {
         setIsDropDownActive(false);
-        console.log("clicked outside");
       }
     }
     document.addEventListener("mousedown", handleClickOutside);

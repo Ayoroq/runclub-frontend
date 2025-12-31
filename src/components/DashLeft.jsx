@@ -4,8 +4,11 @@ import Subscribe from "./Subscribe";
 import { useState, useEffect, useRef, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import {Subscribed} from './Button'
+import { useSubscribeToMembership, useSubscribeToAdmin } from "../utils/SubscribeFunctions";
 
 export default function DashLeft() {
+  const subscribeToMembership = useSubscribeToMembership();
+  const subscribeToAdmin = useSubscribeToAdmin();
   const navigate = useNavigate();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState(null);
@@ -43,7 +46,8 @@ export default function DashLeft() {
   }
 
   const menuRef = useRef(null);
-  const buttonRef = useRef(null);
+  const adminRef = useRef(null);
+  const memberRef = useRef(null)
   const leftNavContainerRef = useRef(null);
 
   useEffect(() => {
@@ -52,7 +56,8 @@ export default function DashLeft() {
         isDropDownActive &&
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
-        !buttonRef.current.contains(event.target)
+        !adminRef.current.contains(event.target) &&
+        !memberRef.current.contains(event.target)
       ) {
         setIsDropDownActive(false);
       }
@@ -97,13 +102,13 @@ export default function DashLeft() {
           >
             {!user.ismember && <div className={styles.dropDownItem}>
               <p>Want to be become a member?</p>
-             {user.ismember ? <Subscribed/> : <button ref={buttonRef} className={styles.subscribeButton}>
+             {user.ismember ? <Subscribed/> : <button ref={memberRef} className={styles.subscribeButton} onClick={subscribeToMembership}>
                 Subscribe
               </button>}
             </div>}
             {!user.isadmin && <div className={styles.dropDownItem}>
               <p>Want to be an Admin?</p>
-              {user.isadmin ? <Subscribed/> :<button ref={buttonRef} className={styles.adminButton}>
+              {user.isadmin ? <Subscribed/> :<button ref={adminRef} className={styles.adminButton} onClick={subscribeToAdmin}>
                 Subscribe
               </button>}
             </div>}
