@@ -5,9 +5,34 @@ import { useState } from "react";
 export default function Post() {
   const navigate = useNavigate();
   const [text, setText] = useState("");
+
   function handleCancel() {
     navigate(-1);
   }
+  async function handlePost() {
+  if (text.trim().length === 0) return;
+
+  try {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/posts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", 
+      body: JSON.stringify({ content: text }),
+    });
+
+    if (res.ok) {
+      navigate(-1);
+    } else if (res.status === 401) {
+      navigate("/login");
+    } else if (res.status === 403) {
+      navigate("/403");
+    } else {
+      console.error("Unexpected error:", res.status);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
   return (
     <section className={styles.postSection}>
       <div onClick={handleCancel}>
@@ -34,7 +59,13 @@ export default function Post() {
         value={text}
       ></textarea>
       <div className={styles.postButtonDiv}>
-        <button style={text.length > 0 ? {opacity: 1} : undefined} className={styles.postButton}>Post</button>
+        <button
+          style={text.length > 0 ? { opacity: 1 } : undefined}
+          className={styles.postButton}
+          onClick={handlePost}
+        >
+          Post
+        </button>
       </div>
     </section>
   );
