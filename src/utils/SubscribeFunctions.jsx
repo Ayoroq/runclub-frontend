@@ -30,3 +30,33 @@ export function useSubscribeToMembership() {
     }
   };
 }
+
+export function useSubscribeToAdmin() {
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  return async function handleSubscribeToAdmin() {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/auth/toggleadmin`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ isadmin: true }),
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        data.user.isadmin?setUser(prev => ({ ...prev, isadmin: true })) : setUser(prev => ({ ...prev, isadmin: false }));
+      } else if (response.status === 401) {
+        navigate("/login");
+      } else if (response.status === 403) {
+        navigate("/403");
+      } else {
+        console.error("Unexpected error:", response.status);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}

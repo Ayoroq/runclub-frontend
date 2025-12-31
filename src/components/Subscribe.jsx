@@ -2,11 +2,12 @@ import styles from "../pages/pages.module.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Subscribed } from "./Button";
-import { useSubscribeToMembership } from "../utils/SubscribeFunctions";
+import { useSubscribeToMembership, useSubscribeToAdmin } from "../utils/SubscribeFunctions";
 
 export default function Subscribe() {
   const { user } = useContext(AuthContext);
-  const subscribe = useSubscribeToMembership();
+  const subscribeMembership = useSubscribeToMembership();
+  const subscribeAdmin = useSubscribeToAdmin();
   return (
     <>
       {!user.ismember && (
@@ -16,7 +17,7 @@ export default function Subscribe() {
           {user.ismember ? (
             <Subscribed />
           ) : (
-            <button className={styles.subscribeButton} onClick={subscribe}>Subscribe</button>
+            <button className={styles.subscribeButton} onClick={subscribeMembership}>Subscribe</button>
           )}
         </div>
       )}
@@ -31,7 +32,7 @@ export default function Subscribe() {
           {user.isadmin ? (
             <Subscribed />
           ) : (
-            <button className={styles.adminButton} >Subscribe</button>
+            <button className={styles.adminButton} onClick={subscribeAdmin} >Subscribe</button>
           )}
         </div>
       )}
