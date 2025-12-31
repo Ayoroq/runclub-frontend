@@ -1,10 +1,14 @@
 import styles from "./Components.module.css";
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext, use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Subscribed } from "./Button";
+import { useSubscribeToMembership, useSubscribeToAdmin } from "../utils/SubscribeFunctions";
 
 export default function MobileNav() {
-  const buttonRef = useRef(null);
+  const subscribeToMembership = useSubscribeToMembership();
+  const subscribeToAdmin = useSubscribeToAdmin();
+  const adminRef = useRef(null);
+  const memberRef = useRef(null);
   const menuRef = useRef(null);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState(null);
@@ -22,9 +26,11 @@ export default function MobileNav() {
         isDropDownActive &&
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
-        !buttonRef.current.contains(event.target)
+        !adminRef.current.contains(event.target) &&
+        !memberRef.current.contains(event.target)
       ) {
         setIsDropDownActive(false);
+        console.log("clicked outside");
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -108,7 +114,7 @@ export default function MobileNav() {
                 {user.ismember ? (
                   <Subscribed />
                 ) : (
-                  <button ref={buttonRef} className={styles.subscribeButton}>
+                  <button ref={memberRef} className={styles.subscribeButton} onClick={subscribeToMembership}>
                     Subscribe
                   </button>
                 )}
@@ -120,7 +126,7 @@ export default function MobileNav() {
                 {user.isadmin ? (
                   <Subscribed />
                 ) : (
-                  <button ref={buttonRef} className={styles.adminButton}>
+                  <button ref={adminRef} className={styles.adminButton} onClick={subscribeToAdmin}>
                     Subscribe
                   </button>
                 )}

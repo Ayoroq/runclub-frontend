@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function PostCard({ posts }) {
-  const {isAdmin, isMember, isLoggedIn } = useContext(AuthContext);
+  const {isLoggedIn,user } = useContext(AuthContext);
 
   function timeAgo(dateString) {
   const date = new Date(dateString);
@@ -30,7 +30,7 @@ export default function PostCard({ posts }) {
         <li key={post.postid} className={styles.post}>
           <p className={styles.postContent}>{post.content}</p>
           <div className={styles.postInfo}>
-           {(isLoggedIn && ( isAdmin || isMember)) ? <p>@{post.username} . <span>{timeAgo(post.created_at)}</span></p> : null} 
+           {(isLoggedIn && ( user.isadmin || user.ismember)) ? <p>@{post.username} . <span>{timeAgo(post.created_at)}</span></p> : null} 
           </div>
         </li>
       ))}
