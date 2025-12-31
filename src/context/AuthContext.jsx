@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
                 setIsMember(false);
                 setIsAdmin(false);
             }
-        } catch {
+        } catch(err){
             setIsLoggedIn(false);
             setUser(null);
         } finally {

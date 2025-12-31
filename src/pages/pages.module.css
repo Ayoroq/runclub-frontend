@@ -67,27 +67,32 @@ h1 {
 /* Home Page */
 .home {
   padding: 1rem;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .title {
   font-size: 8vw;
-  display: flex;
-  justify-content: space-between;
   margin: 0;
 }
-.imageContainer {
-  max-height: 600px;
-  overflow: hidden;
+
+.imageSection{
+  display: flex;
+  gap: 1rem;
 }
+
+.imageContainer{
+  max-height: 500px;
+}
+
 .image {
   width: 100%;
-  display: block;
-  margin: 0 auto;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: right;
+  border-radius: 10px;
 }
+
 .loginLink {
   color: blue;
   cursor: pointer;
