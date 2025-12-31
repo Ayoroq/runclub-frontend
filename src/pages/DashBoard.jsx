@@ -10,6 +10,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const { loading } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     async function getPosts() {
@@ -38,7 +39,7 @@ export default function Dashboard() {
     <main className={styles.dashboard}>
       <DashLeft />
       <Post posts={posts} />
-      <div className={styles.dashRight}>
+      {isLoggedIn && <div className={styles.dashRight}>
         <Subscribe />
         <div
           className={styles.phonePostButtonContainer}
@@ -54,7 +55,7 @@ export default function Dashboard() {
             </g>
           </svg>
         </div>
-      </div>
+      </div>}
     </main>
   );
 }
