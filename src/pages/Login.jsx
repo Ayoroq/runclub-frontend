@@ -8,7 +8,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loginUser, isLoggedIn, loading, setUser} = useContext(AuthContext);
+  const { loginUser, isLoggedIn, loading} = useContext(AuthContext);
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
@@ -17,9 +17,6 @@ export default function Login() {
   }, [isLoggedIn, loading, navigate]);
 
   function handleGuestLogin() {
-    setUser({
-      username: "Anonymous",
-    });
     navigate("/dashboard");
   }
 

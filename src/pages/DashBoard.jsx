@@ -8,16 +8,8 @@ import Subscribe from "../components/Subscribe";
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const { isLoggedIn, loading, setUser } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    if (!loading && !isLoggedIn) {
-      setUser({
-        username: "Anonymous",
-      });
-    }
-  }, [loading,isLoggedIn, setUser]);
 
   useEffect(() => {
     async function getPosts() {

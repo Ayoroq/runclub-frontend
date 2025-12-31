@@ -1,5 +1,6 @@
 import styles from "./Components.module.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function MobileNav() {
   const buttonRef = useRef(null);

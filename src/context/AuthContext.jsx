@@ -111,6 +111,7 @@ export function AuthProvider({ children }) {
         } catch (error) {
             console.error('Logout error:', error);
         }
+        setLoading(false)
         setIsLoggedIn(false);
         setUser(null);
     }
