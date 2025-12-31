@@ -221,6 +221,15 @@
   background-color: var(--hover);
 }
 
+.userInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+.admin{
+  font-weight: bold;
+}
+
 @keyframes sideDropdown {
   from {
     transform: translateX(0%);

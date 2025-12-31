@@ -5,15 +5,13 @@ import { AuthContext } from "../context/AuthContext";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Navbar() {
-  const { isLoggedIn, loading, logout, user } =
-    useContext(AuthContext);
+  const { isLoggedIn, loading, logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
-
 
   function handleLogout() {
     if (isLoggedIn) {
-      logout(); 
-    } 
+      logout();
+    }
     navigate("/login");
   }
   return (
@@ -35,7 +33,10 @@ export default function Navbar() {
       <div className={styles.navbarRight}>
         {loading ? null : isLoggedIn ? (
           <>
-            <span className={styles.username}>{user.username}</span>
+            <div className={styles.userInfo}>
+              <span className={styles.username}>{user.username}</span>
+              {user.isadmin && <span className={styles.admin}>Admin</span>}
+            </div>
             <svg
               width="25"
               height="25"
