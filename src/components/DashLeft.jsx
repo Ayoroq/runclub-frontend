@@ -1,12 +1,14 @@
 import styles from "./Components.module.css";
 import { useNavigate } from "react-router";
 import Subscribe from "./Subscribe";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function DashLeft() {
   const navigate = useNavigate();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(null)
+  const [windowWidth, setWindowWidth] = useState(null);
+  const { isLoggedIn, isAdmin, isMember, loading } = useContext(AuthContext);
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -19,25 +21,29 @@ export default function DashLeft() {
     function handleResize() {
       setWindowWidth(window.innerWidth);
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [windowWidth])
+  }, [windowWidth]);
 
   function handleMoreButtonClick() {
     setIsDropDownActive(!isDropDownActive);
   }
 
-  if(windowWidth && isDropDownActive && (windowWidth > 1050 || windowWidth < 620)){
-    setIsDropDownActive(false)
+  if (
+    windowWidth &&
+    isDropDownActive &&
+    (windowWidth > 1050 || windowWidth < 620)
+  ) {
+    setIsDropDownActive(false);
   }
 
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
-  const leftNavContainerRef = useRef(null)
+  const leftNavContainerRef = useRef(null);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -69,38 +75,40 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.active} ${styles.leftNav}`}>Home</p>
       </div>
-      <div
-        className={`${styles.leftNavItem} ${styles.moreButton}`}
-        onClick={handleMoreButtonClick}
-        ref={menuRef}
-      >
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className={styles.leftNavIcon}
-        >
-          <g>
-            <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path>
-          </g>
-        </svg>
+      {isLoggedIn &&
         <div
-          style={isDropDownActive ? { display: "flex" } : undefined}
-          className={styles.DropDownContainer}
+          className={`${styles.leftNavItem} ${styles.moreButton}`}
+          onClick={handleMoreButtonClick}
+          ref={menuRef}
         >
-          <div className={styles.dropDownItem}>
-            <p>Want to be become a member?</p>
-            <button ref={buttonRef} className={styles.subscribeButton}>
-              Subscribe
-            </button>
-          </div>
-          <div className={styles.dropDownItem}>
-            <p>Want to be an Admin?</p>
-            <button ref={buttonRef} className={styles.adminButton}>
-              Subscribe
-            </button>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            className={styles.leftNavIcon}
+          >
+            <g>
+              <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path>
+            </g>
+          </svg>
+          <div
+            style={isDropDownActive ? { display: "flex" } : undefined}
+            className={styles.DropDownContainer}
+          >
+            <div className={styles.dropDownItem}>
+              <p>Want to be become a member?</p>
+              <button ref={buttonRef} className={styles.subscribeButton}>
+                Subscribe
+              </button>
+            </div>
+            <div className={styles.dropDownItem}>
+              <p>Want to be an Admin?</p>
+              <button ref={buttonRef} className={styles.adminButton}>
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      }
       <div className={styles.leftNavItem}>
         <svg
           viewBox="0 0 24 24"
@@ -186,23 +194,25 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.leftNav}`}>Settings</p>
       </div>
-      <div
-        className={styles.leftNavItem}
-        onClick={() => navigate("/compose/post")}
-      >
-        <button className={styles.postButton}>Post</button>
-        <div className={styles.mobilePostButtonContainer}>
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className={styles.mobilePostButton}
-          >
-            <g>
-              <path d="M23 3c-6.62-.1-10.38 2.421-13.05 6.03C7.29 12.61 6 17.331 6 22h2c0-1.007.07-2.012.19-3H12c4.1 0 7.48-3.082 7.94-7.054C22.79 10.147 23.17 6.359 23 3zm-7 8h-1.5v2H16c.63-.016 1.2-.08 1.72-.188C16.95 15.24 14.68 17 12 17H8.55c.57-2.512 1.57-4.851 3-6.78 2.16-2.912 5.29-4.911 9.45-5.187C20.95 8.079 19.9 11 16 11zM4 9V6H1V4h3V1h2v3h3v2H6v3H4z"></path>
-            </g>
-          </svg>
+      {isLoggedIn && (isAdmin || isMember) && (
+        <div
+          className={styles.leftNavItem}
+          onClick={() => navigate("/compose/post")}
+        >
+          <button className={styles.postButton}>Post</button>
+          <div className={styles.mobilePostButtonContainer}>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className={styles.mobilePostButton}
+            >
+              <g>
+                <path d="M23 3c-6.62-.1-10.38 2.421-13.05 6.03C7.29 12.61 6 17.331 6 22h2c0-1.007.07-2.012.19-3H12c4.1 0 7.48-3.082 7.94-7.054C22.79 10.147 23.17 6.359 23 3zm-7 8h-1.5v2H16c.63-.016 1.2-.08 1.72-.188C16.95 15.24 14.68 17 12 17H8.55c.57-2.512 1.57-4.851 3-6.78 2.16-2.912 5.29-4.911 9.45-5.187C20.95 8.079 19.9 11 16 11zM4 9V6H1V4h3V1h2v3h3v2H6v3H4z"></path>
+              </g>
+            </svg>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
