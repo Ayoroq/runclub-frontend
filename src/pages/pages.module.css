@@ -6,10 +6,10 @@
 /* signup and login forms */
 h1 {
   margin: 0;
-  font-size: clamp(24px,3rem,4vw);
+  font-size: clamp(24px, 3rem, 4vw);
   text-align: center;
 }
-.signupText{
+.signupText {
   text-align: center;
 }
 .signupMain {
@@ -60,7 +60,7 @@ h1 {
   border-bottom: 1px solid;
 }
 
-.guest p{
+.guest p {
   text-align: center;
 }
 
@@ -77,12 +77,12 @@ h1 {
   margin: 0;
 }
 
-.imageSection{
+.imageSection {
   display: flex;
   gap: 1rem;
 }
 
-.imageContainer{
+.imageContainer {
   max-height: 500px;
 }
 
@@ -117,33 +117,33 @@ h3 {
 }
 
 /* Login */
-.loginMain{
+.loginMain {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 4rem;
 }
 
-.Loginlogo{
+.Loginlogo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Loginlogo p{
+.Loginlogo p {
   font-size: 2rem;
 }
 
-.lotties{
+.lotties {
   display: flex;
   cursor: pointer;
 }
 
-.guest{
+.guest {
   padding-top: 2rem;
 }
 
-.loginMain p{
+.loginMain p {
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ hr {
   height: 5px;
 }
 
-hr::after{
+hr::after {
   background: white;
   content: "Or";
   padding: 5px 4px;
@@ -181,14 +181,14 @@ hr::after{
   flex-direction: column;
 }
 
-.subscribeContainer{
+.subscribeContainer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 .subscribe,
-.admin,.trending {
+.admin {
   margin: 0;
   border: 1px solid var(--border);
   display: flex;
@@ -219,6 +219,35 @@ hr::after{
 .subscribeButton:hover,
 .adminButton:hover {
   background-color: var(--hover);
+}
+
+.trending {
+  margin: 0;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 300px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.trendingItem *{
+  margin: 0;
+}
+
+.trendingItem:first-child{
+  border-top: none;
+}
+
+.trendingItem {
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.trendingItem:hover{
+  background-color: rgb(244, 244, 244);
 }
 
 .phonePostButtonContainer {
@@ -291,7 +320,8 @@ textarea {
 
 @media (max-width: 1050px) {
   .subscribe,
-  .admin,.trending {
+  .admin,
+  .trending {
     display: none;
   }
 }

@@ -48,12 +48,16 @@ export function Trending() {
         <p>See who is running</p>
       </div>
       <div className={styles.trendingItem}>
+        <h3>Cyclers</h3>
+        <p>See who is cycling</p>
+      </div>
+      <div className={styles.trendingItem}>
         <h3>Events</h3>
         <p>See what is happening</p>
       </div>
       <div className={styles.trendingItem}>
         <h3>Groups</h3>
-        <p>See what groups are running</p>
+        <p>See what groups are running/cycling</p>
       </div>
     </div>
   );
