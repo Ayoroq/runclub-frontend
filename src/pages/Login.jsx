@@ -8,21 +8,23 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loginUser, isLoggedIn, loading} = useContext(AuthContext);
-
-  useEffect(() => {
-    if (!loading && isLoggedIn) {
-      navigate("/dashboard");
-    }
-  }, [isLoggedIn, loading, navigate]);
-
-  function handleGuestLogin() {
-    navigate("/dashboard");
-  }
+  const { loginUser,isLoggedIn, loading} = useContext(AuthContext);
 
   useEffect(() => {
     scrollTo(0, 0);
   }, []);
+
+  if(loading){
+    return null
+  }
+
+  if (isLoggedIn) {
+    navigate("/dashboard");
+  }
+
+  function handleGuestLogin() {
+    navigate("/dashboard");
+  }
 
   async function handleLoginSubmit(e) {
     e.preventDefault();
