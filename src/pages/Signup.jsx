@@ -7,7 +7,7 @@ import { AuthContext } from "../context/AuthContext.jsx";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const { setUser,signupUser, isLoggedIn, loading } = useContext(AuthContext);
+  const {signupUser, isLoggedIn, loading } = useContext(AuthContext);
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
@@ -16,9 +16,6 @@ export default function Signup() {
   }, [isLoggedIn, loading, navigate]);
 
   function handleGuestLogin() {
-    setUser({
-      username: "Anonymous",
-    });
     navigate("/dashboard");
   }
 
