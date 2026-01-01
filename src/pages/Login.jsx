@@ -14,12 +14,14 @@ export default function Login() {
     scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (!loading && isLoggedIn) {
+      navigate("/dashboard");
+    }
+  }, [isLoggedIn, loading, navigate]);
+
   if(loading){
     return null
-  }
-
-  if (isLoggedIn) {
-    navigate("/dashboard");
   }
 
   function handleGuestLogin() {

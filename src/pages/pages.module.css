@@ -180,7 +180,8 @@ hr::after {
   top: var(--nav-height);
   height: fit-content;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  gap: 1rem;
 }
 
 .subscribeContainer {
@@ -232,7 +233,6 @@ hr::after {
   max-width: calc(301px + 2rem);
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 1rem;
 }
 
 .trendingItem *{
