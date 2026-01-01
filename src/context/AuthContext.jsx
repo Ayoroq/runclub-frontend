@@ -120,12 +120,13 @@ export function AuthProvider({ children }) {
         method: "POST",
         credentials: "include",
       });
-      setLoading(false);
-      setIsLoggedIn(false);
-      setUser(null);
     } catch (error) {
       console.error("Logout error:", error);
     }
+    setIsLoggedIn(false);
+    setUser(null);
+    setIsAdmin(false);
+    setIsMember(false);
   }
 
   return (

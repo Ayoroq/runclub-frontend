@@ -8,17 +8,17 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loginUser,isLoggedIn, loading} = useContext(AuthContext);
-
-  useEffect(() => {
-    scrollTo(0, 0);
-  }, []);
+  const { loginUser, isLoggedIn, loading} = useContext(AuthContext);
 
   useEffect(() => {
     if (!loading && isLoggedIn) {
       navigate("/dashboard");
     }
   }, [isLoggedIn, loading, navigate]);
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   if(loading){
     return null
@@ -34,7 +34,9 @@ export default function Login() {
     const data = Object.fromEntries(formData);
 
     const response = await loginUser(data);
-    if (!response.success) {
+    if (response.success) {
+      navigate("/dashboard");
+    } else {
       console.error("Login failed");
     }
   }
