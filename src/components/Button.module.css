@@ -24,6 +24,7 @@
 }
 
 .loginButton,.signupButton{
+  align-self: center;
   background-color: green;
   border-radius: 20px;
 }
