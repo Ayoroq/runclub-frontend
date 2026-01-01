@@ -229,9 +229,10 @@ hr::after {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-width: 300px;
+  max-width: calc(301px + 2rem);
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .trendingItem *{
