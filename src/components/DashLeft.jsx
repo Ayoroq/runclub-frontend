@@ -12,7 +12,7 @@ export default function DashLeft() {
   const navigate = useNavigate();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState(null);
-  const { isLoggedIn, isAdmin, isMember,user } = useContext(AuthContext);
+  const { isLoggedIn,user } = useContext(AuthContext);
   function handleHomeClick() {
     window.scrollTo({
       top: 0,
@@ -200,7 +200,7 @@ export default function DashLeft() {
         </svg>
         <p className={`${styles.leftNav}`}>Settings</p>
       </div>
-      {isLoggedIn && (isAdmin || isMember) && (
+      {isLoggedIn && (user.isadmin || user.ismember) && (
         <div
           className={styles.leftNavItem}
           onClick={() => navigate("/compose/post")}
