@@ -5,13 +5,19 @@ export function useSubscribeToMembership() {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   return async function handleSubscribeToMembership() {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/auth/togglemember`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
+          headers: { "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+           },
           body: JSON.stringify({ ismember: true }),
         }
       );
@@ -35,13 +41,19 @@ export function useSubscribeToAdmin() {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   return async function handleSubscribeToAdmin() {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/auth/toggleadmin`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
+          headers: { "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+           },
           body: JSON.stringify({ isadmin: true }),
         }
       );

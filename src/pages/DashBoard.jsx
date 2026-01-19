@@ -15,10 +15,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function getPosts() {
+      const token = localStorage.getItem("authToken");
+      if (!token) return navigate("/login");
       try {
         const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/posts`, {
           method: "GET",
-          credentials: "include",
+          headers: {
+            Authorization: `Bearer ${token}`
+           },
         });
 
         if (res.ok) {
