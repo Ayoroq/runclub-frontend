@@ -11,14 +11,19 @@ export default function PostCard({ posts, setPosts}) {
     event.preventDefault();
     event.stopPropagation();
     try {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/posts/${postid}`,
         {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
-          credentials: "include",
         }
       );
       if (response.status === 204) {

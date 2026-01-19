@@ -10,11 +10,20 @@ export function AuthProvider({ children }) {
   const [isMember, setIsMember] = useState(false);
 
   async function checkAuth() {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      setIsLoggedIn(false);
+      setUser(null);
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/auth/verify`,
         {
-          credentials: "include",
+          headers: { "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+           },
         }
       );
       if (res.ok) {
@@ -24,12 +33,14 @@ export function AuthProvider({ children }) {
         setIsMember(data.user.ismember);
         setIsAdmin(data.user.isadmin);
       } else {
+        localStorage.removeItem("authToken");
         setIsLoggedIn(false);
         setUser(null);
         setIsMember(false);
         setIsAdmin(false);
       }
     } catch (err) {
+      localStorage.removeItem("authToken");
       setIsLoggedIn(false);
       setUser(null);
     } finally {
@@ -48,12 +59,13 @@ export function AuthProvider({ children }) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          credentials: "include",
           body: JSON.stringify(credentials),
         }
       );
       if (res.ok) {
         const data = await res.json();
+        const token = data.token;
+        localStorage.setItem("authToken", token);
         setUser(data.user);
         setIsLoggedIn(true);
         setIsAdmin(data.user.isadmin);
@@ -73,7 +85,6 @@ export function AuthProvider({ children }) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          credentials: "include",
           body: JSON.stringify(userData),
         }
       );
@@ -90,13 +101,18 @@ export function AuthProvider({ children }) {
   }
 
   async function updateUser(userData) {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      return { success: false, error: "No auth token found" };
+    }
     try {
       const res = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/user/update`,
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
+          headers: { "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+           },
           body: JSON.stringify(userData),
         }
       );
@@ -115,14 +131,7 @@ export function AuthProvider({ children }) {
   }
 
   async function logout() {
-    try {
-      await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/logout`, {
-        method: "POST",
-        credentials: "include",
-      });
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+    localStorage.removeItem("authToken");
     setIsLoggedIn(false);
     setUser(null);
     setIsAdmin(false);

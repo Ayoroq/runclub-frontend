@@ -13,10 +13,16 @@ export default function Post() {
   if (text.trim().length === 0) return;
 
   try {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/posts`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include", 
+      headers: { "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+       },
       body: JSON.stringify({ content: text }),
     });
 
