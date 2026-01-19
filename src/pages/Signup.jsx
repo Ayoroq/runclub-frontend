@@ -32,6 +32,7 @@ export default function Signup() {
     if (!response.success) {
       console.error("Signup failed");
     }
+    navigate("/login");
   }
 
   if (loading) {
