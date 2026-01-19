@@ -12,7 +12,7 @@ export default function Navbar() {
     if (isLoggedIn) {
       logout();
     }
-    navigate("/login");
+    navigate("/dashboard");
   }
   return (
     <nav className={styles.navbar}>

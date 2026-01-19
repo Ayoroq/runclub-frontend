@@ -90,8 +90,6 @@ export function AuthProvider({ children }) {
       );
       if (res.ok) {
         const data = await res.json();
-        setUser(data.user);
-        setIsLoggedIn(true);
         return { success: true };
       }
       return { success: false, error: "Signup failed" };
